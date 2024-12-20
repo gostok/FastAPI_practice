@@ -1,5 +1,5 @@
 from typing import Optional, Annotated
-from pydantic import BaseModel
+from pydantic import BaseModel, ConfigDict
 
 
 class STaskAdd(BaseModel):
@@ -9,6 +9,8 @@ class STaskAdd(BaseModel):
 
 class STask(STaskAdd):
     id: int
+
+    model_config = ConfigDict(from_attributes=True)
 
 
 class STaskID(BaseModel):
